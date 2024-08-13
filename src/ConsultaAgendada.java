@@ -9,16 +9,17 @@ public class ConsultaAgendada {
 
     // Construtor sem parâmetros, com entrada de dados via Scanner
     public ConsultaAgendada() {
-        Scanner sc = new Scanner(System.in);
         
+        Scanner sc = new Scanner(System.in);
         this.data = new Data();
         this.hora = new Hora();
         
-       // System.out.print("Digite o nome completo do paciente: ")
-        sc.nextLine();
+       this.nomePaciente= getNomePaciente();
         
         System.out.println("Escolha o médico:");
-        String[] medicos = {"Dr. João", "Dra. Maria", "Dr. Carlos", "Dra. Ana"};
+        this.nomeMedico = getNomeMedico();
+
+        /*String[] medicos = {"Dr. João", "Dra. Maria", "Dr. Carlos", "Dra. Ana"};
         for (int i = 0; i < medicos.length; i++) {
             System.out.println((i + 1) + ". " + medicos[i]);
         }
@@ -32,7 +33,7 @@ public class ConsultaAgendada {
         } else {
             System.out.println("Escolha inválida. Médico padrão selecionado.");
             this.nomeMedico = medicos[0];
-        }
+        } */
 
         quantidade++;
     }
@@ -82,7 +83,7 @@ public class ConsultaAgendada {
 
     public void setNomePaciente() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Digite o nome completo do paciente: ");
+        System.out.println("Digite o nome completo do paciente: ");
         this.nomePaciente = sc.nextLine();
     }
 
@@ -134,8 +135,9 @@ public class ConsultaAgendada {
 
         // Instanciar o objeto p2 com o construtor sem parâmetros
         ConsultaAgendada p2 = new ConsultaAgendada();
-        System.out.println("Propriedades de p2:");
+        System.out.print("Propriedades de p2:");
         System.out.println(p2);
+       
 
         // Alterar propriedades de p1
         p1.setData(25, 12, 2024);
