@@ -1,3 +1,6 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class ConsultaAgendada {
@@ -128,16 +131,18 @@ public class ConsultaAgendada {
     }
 
     public static void main(String[] args) {
+
+        StringBuilder resultado = new StringBuilder();
+
         // Instanciar o objeto p1 com o construtor com parâmetros
         ConsultaAgendada p1 = new ConsultaAgendada(10, 30, 15, 15, 8, 2024, "João da Silva", "Dr. João");
-        System.out.println("Propriedades de p1:");
-        System.out.println(p1);
+        resultado.append("Propriedades de p1:\n");
+        resultado.append(p1.toString()).append("\n\n");
 
         // Instanciar o objeto p2 com o construtor sem parâmetros
         ConsultaAgendada p2 = new ConsultaAgendada();
-        System.out.print("Propriedades de p2:");
-        System.out.println(p2);
-       
+        resultado.append("Propriedades de p2:\n");
+        resultado.append(p2.toString()).append("\n\n");
 
         // Alterar propriedades de p1
         p1.setData(25, 12, 2024);
@@ -145,10 +150,20 @@ public class ConsultaAgendada {
         p1.setNomePaciente("Maria Oliveira");
         p1.setNomeMedico("Dra. Maria");
 
-        System.out.println("Propriedades de p1 após alterações:");
-        System.out.println(p1);
+        resultado.append("Propriedades de p1 após alterações:\n");
+        resultado.append(p1.toString()).append("\n\n");
 
         // Exibir a quantidade final de consultas
-        System.out.println("Quantidade final de consultas: " + p1.getAmostra());
+        resultado.append("Quantidade final de consultas: ").append(p1.getAmostra()).append("\n");
+
+        // Exibir e escrever todo o resultado no arquivo de texto
+        System.out.println(resultado.toString());
+
+        try (PrintWriter writer = new PrintWriter(new FileWriter("resultado_exercicio3.txt"))) {
+            writer.write(resultado.toString());
+            System.out.println("Resultados escritos no arquivo 'resultado_exercicio3.txt'.");
+        } catch (IOException e) {
+            System.out.println("Erro ao escrever o arquivo: " + e.getMessage());
+        }
     }
 }

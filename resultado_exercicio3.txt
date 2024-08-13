@@ -1,0 +1,22 @@
+Propriedades de p1:
+Consulta Agendada:
+Data: 15/08/2024
+Hora: 10:30:15
+Paciente: João da Silva
+Médico: Dr. João
+
+Propriedades de p2:
+Consulta Agendada:
+Data: 02/09/2024
+Hora: 15:30:00
+Paciente: null
+Médico: null
+
+Propriedades de p1 após alterações:
+Consulta Agendada:
+Data: 25/12/2024
+Hora: 14:45:00
+Paciente: Maria Oliveira
+Médico: Dra. Maria
+
+Quantidade final de consultas: 2
